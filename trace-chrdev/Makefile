@@ -2,7 +2,9 @@
 obj-m := trace_chrdev.o
 
 PWD := $(shell pwd)
-KDIR:= /lib/modules/4.4.0-31-generic/build
+KDIR:= /home/pi/ebpf/linux
+
+
 
 all:
 	make -C $(KDIR) M=$(PWD)

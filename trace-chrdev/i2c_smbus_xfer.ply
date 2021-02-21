@@ -1,0 +1,7 @@
+#! /usr/local/sbin/ply
+
+
+kprobe:trace_open
+{
+  @[stack] = count();
+}
