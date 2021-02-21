@@ -1,0 +1,27 @@
+/dts-v1/;
+/plugin/;
+/ {
+    compatible="brcm,brcm2835";
+    fragment@0 {
+        target = <&gpio>;
+        __overlay__ {
+            minirq: minirq_gpio_pins {
+                brcm,pins = <0x11>;
+                brcm,function = <0x0>;
+                brcm,pull = <0x1>;
+            };
+        };
+    };
+    fragment@1 {
+        target-path = "/";
+        __overlay__ {
+            minirq {
+                minirq-gpios = <&gpio 0x11 0x0>;
+                compatible = "minirq";
+                status = "ok";
+                pinctrl-0 = <&minirq>;
+                pinctrl-names = "default";
+            };
+        };
+    };
+};
